@@ -12,10 +12,10 @@ Build the docker container.
 docker build -t mock .
 ```
 
-Start the container. The `--privileged` option is needed to use `mock` command.
+Start the container. The `--cap-add=SYS_ADMIN` option is needed to use `mock` command. Without this option, `mock` fails with the error `ERROR: Namespace unshare failed.`
 
 ```
-docker run --privileged -it mock
+docker run --cap-add=SYS_ADMIN -it mock
 ```
 
 In the container, run the following commands.
